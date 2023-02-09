@@ -19,5 +19,5 @@ jobs:
       run: cargo build --release
     - name: Auto Attendance
       run: |
-        cargo run --release -- -u "${{ secrets.USERNAME }}" "${{ secrets.PASSWORD }}" --retry
+        cargo run --release -- -u "${{ secrets.USERNAME }}" "${{ secrets.PASSWORD }}" --retry 5
       continue-on-error: true
