@@ -255,10 +255,10 @@ impl TjuPtUser {
 
         let retry_times = self.config.retry();
         for i in 0..retry_times {
-            // // 为了豆瓣正常访问需要等待
-            // if i > 0 && i < retry_times-1 {
-            //     tokio::time::sleep(Duration::from_secs(10)).await;
-            // }
+            // 为了豆瓣正常访问需要等待
+            if i > 0 && i < retry_times-1 {
+                tokio::time::sleep(Duration::from_secs(10)).await;
+            }
 
             if let Err(e) = self.att_onece_now().await {
                 log::debug!(
